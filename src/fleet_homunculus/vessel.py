@@ -47,17 +47,22 @@ class Vessel:
         old_health = self.current_health
         self.current_health = max(0, self.current_health - amount)
 
-        # Determine pain level based on damage
+        # Status reflects remaining health (bands aligned with heal())
         health_percent = self.current_health / self.max_health
         if health_percent <= 0:
             self.status = "destroyed"
-            level = PainLevel.CRITICAL
         elif health_percent < 0.25:
             self.status = "critical"
-            level = PainLevel.SEVERE
-        elif health_percent < 0.5:
+        elif health_percent < 0.75:
             self.status = "damaged"
-            level = PainLevel.MODERATE
+        else:
+            self.status = "active"
+
+        # Pain level reflects hit severity
+        if health_percent <= 0:
+            level = PainLevel.CRITICAL
+        elif amount > 50:
+            level = PainLevel.SEVERE
         elif amount > 10:
             level = PainLevel.MILD
         else:
