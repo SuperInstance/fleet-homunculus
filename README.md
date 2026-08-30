@@ -1,6 +1,12 @@
 # fleet-homunculus
 
+<p align="center">
+  <img src="assets/images/hero.jpg" width="680" alt="A figure of warm light reading the glowing map of its own vessel — the fleet sensing its own body in the dark">
+</p>
+
 Fleet body image — vessel health monitoring and reflex arcs.
+
+*The agent at the chart desk of itself — one glowing act: reading its own outline.*
 
 Every fleet agent needs a body image — a model of its own capabilities, health, and status. Fleet Homunculus provides that model.
 
